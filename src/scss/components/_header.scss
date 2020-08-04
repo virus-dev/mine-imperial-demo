@@ -1,0 +1,55 @@
+header {
+    position: fixed;
+    width: 100%;
+    .nothingLine {
+        height: 25px;
+        background: white;
+        position: fixed;
+        width: 100%;
+    }
+    .header__inner {
+        position: absolute;
+        width: 100%;
+        background: white;
+        border-radius: 5px;
+        top: 15px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 62px;
+        align-items: center;
+        .header__item {
+            padding: 10px 15px;
+        }
+        .img {display: block;}
+        .header__user, .header__burger {
+            text-align: right;
+        }
+        .header__user {
+            cursor: pointer;
+        }
+        .header__burger img {
+            cursor: pointer;
+        }
+        .header__burgerMenu {
+            position: absolute;
+            background: white;
+            right: 0;
+            border-radius: 5px;
+            top: calc(100% + 5px);
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+            overflow: hidden;
+            .header__burgerMenu__item {
+                cursor: pointer;
+                padding: 10px 15px;
+                transition: all .1s linear;
+                &:hover {
+                    background: #dfdfdf;
+                }
+            }
+        }
+    }
+}
