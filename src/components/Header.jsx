@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import burgerMenu from '../img/burgerMenu.svg'
+import { Link } from 'react-router-dom'
 
 function Header() {
     const [burgerMenuOpened, setBurgerMenuOpened] = useState(false);
@@ -30,7 +31,7 @@ function Header() {
                         <img onClick={() => toggleOpenBurgerMenu()} src={burgerMenu} alt="Бургер меню"/>
                         {burgerMenuOpened && 
                         <div className="header__burgerMenu">
-                            <div className="header__burgerMenu__item">Карта адаа</div>
+                            <Link to="neather" className="header__burgerMenu__item">Карта адаа</Link>
                         </div>}
                     </div>
                 </div>
