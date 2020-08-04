@@ -30,7 +30,7 @@ function Header() {
                         <img onClick={() => toggleOpenBurgerMenu()} src={burgerMenu} alt="Бургер меню"/>
                         {burgerMenuOpened && 
                         <div className="header__burgerMenu">
-                            <div className="header__burgerMenu__item">Карта ада</div>
+                            <div className="header__burgerMenu__item">Карта адаа</div>
                         </div>}
                     </div>
                 </div>
