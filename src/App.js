@@ -1,11 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Route } from 'react-router-dom'
 
-import { Header } from './components'
+import { Header, NeatherMap } from './components'
 
 function App() {
   return (
-    <Header />
+    <div>
+      <Header />
+      <Route component={NeatherMap} path='/neather' exact />
+    </div>
   );
 }
 
