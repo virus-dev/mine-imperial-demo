@@ -1,0 +1,26 @@
+.btn {
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-family: "Roboto-Bold";
+
+    &.btn-danger {
+        background: red;
+    }
+    &.btn-confirm {
+        background: rgb(179, 243, 51);
+    }
+
+    &.btn-addBranch {
+        background: rgb(179, 243, 51);
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    }
+}

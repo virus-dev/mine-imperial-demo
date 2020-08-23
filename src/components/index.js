@@ -1,2 +1,7 @@
 export { default as Header } from './Header'
 export { default as NeatherMap } from './NeatherMap'
+export { default as ModalNeatherMap } from './ModalNeatherMap'
+export { default as NamesNeatherMap } from './NamesNeatherMap'
+export { default as AddBranch } from './AddBranch'
+export { default as ModalWindow } from './ModalWindow'
+export { default as AddBranchForm } from './AddBranchForm'

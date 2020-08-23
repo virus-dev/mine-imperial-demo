@@ -9,6 +9,10 @@ function Header() {
     }
     const burgerIcon = React.useRef();
 
+    const closeBurgerMenu = () => {
+        setBurgerMenuOpened(!burgerMenuOpened);
+    }
+
     const handleOutsideClick = (e) => {
         if (!e.path.includes(burgerIcon.current)) {
             setBurgerMenuOpened(false)
@@ -24,14 +28,16 @@ function Header() {
             <div className="nothingLine"></div>
             <div className="container">
                 <div className="header__inner">
-                    <div className="header__logo header__item">Лого</div>
+                    <div className="header__logo header__item">
+                        <Link to="/">Лого</Link>
+                    </div>
                     <div className="header__infoPage header__item">Главная страница</div>
                     <div className="header__user header__item">Гость</div>
                     <div ref={burgerIcon} className="header__burger header__item">
                         <img onClick={() => toggleOpenBurgerMenu()} src={burgerMenu} alt="Бургер меню"/>
                         {burgerMenuOpened && 
                         <div className="header__burgerMenu">
-                            <Link to="neather" className="header__burgerMenu__item">Карта ада</Link>
+                            <Link to="neather" onClick={() => closeBurgerMenu()} className="header__burgerMenu__item">Карта ада</Link>
                         </div>}
                     </div>
                 </div>
