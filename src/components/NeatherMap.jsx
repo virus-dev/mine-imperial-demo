@@ -75,7 +75,6 @@ class NeatherMap extends React.Component {
             })
         }
         this.pointModal()
-        this.setState({isRender: !this.state.isRender})
      }
 
      finishLooking = () => {
