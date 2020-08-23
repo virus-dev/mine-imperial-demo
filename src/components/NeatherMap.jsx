@@ -1,5 +1,7 @@
 import React from 'react'
 import { ModalNeatherMap, NamesNeatherMap, AddBranch } from './index'
+import { connect } from 'react-redux'
+import store from '../redux/store';
 
 class NeatherMap extends React.Component {
     constructor(props) {
@@ -12,17 +14,18 @@ class NeatherMap extends React.Component {
      }
 
      componentDidMount() {
-        this.initialState = [
-            { name: 'Синяя ветка', branch: 'blue', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: -1000 },
-            { name: 'Желтая ветка', branch: 'yellow', type: 'mainTunnel', xStart: 0, zStart: 0, x: 1000, y: 0 },
-            { name: 'Красная ветка', branch: 'red', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: 1000 },
-            { name: 'Зеленая ветка', branch: 'green', type: 'mainTunnel', xStart: 0, zStart: 0, x: -1000, y: 0 },
-            { name: 'Райск', branch: 'red', type: 'portal', tunnel: 'true', xStart: 0, zStart: 194, x: 21, y: 194 },
-            { name: 'Главный эндер портал', branch: 'yellow', type: 'onRed', tunnel: 'true', xStart: 121, zStart: 0, x: 121, y: 146 },
-            { name: 'Главный эндер портал', branch: 'red', type: 'end', tunnel: 'true', xStart: 0, zStart: 146, x: 121, y: 146 },
-            { name: 'Крепость', branch: 'false', type: 'portal', tunnel: 'false', xStart: -200, zStart: -200, x: -200, y: -200 },
-            { name: 'Хаб', branch: 'all', type: 'hab', xStart: 0, zStart: 0, x: 0, y: 0 },
-        ]
+        // this.initialState = [
+        //     { name: 'Синяя ветка', branch: 'blue', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: -1000 },
+        //     { name: 'Желтая ветка', branch: 'yellow', type: 'mainTunnel', xStart: 0, zStart: 0, x: 1000, y: 0 },
+        //     { name: 'Красная ветка', branch: 'red', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: 1000 },
+        //     { name: 'Зеленая ветка', branch: 'green', type: 'mainTunnel', xStart: 0, zStart: 0, x: -1000, y: 0 },
+        //     { name: 'Райск', branch: 'red', type: 'portal', tunnel: 'true', xStart: 0, zStart: 194, x: 21, y: 194 },
+        //     { name: 'Главный эндер портал', branch: 'yellow', type: 'onRed', tunnel: 'true', xStart: 121, zStart: 0, x: 121, y: 146 },
+        //     { name: 'Главный эндер портал', branch: 'red', type: 'end', tunnel: 'true', xStart: 0, zStart: 146, x: 121, y: 146 },
+        //     { name: 'Крепость', branch: 'false', type: 'portal', tunnel: 'false', xStart: -200, zStart: -200, x: -200, y: -200 },
+        //     { name: 'Хаб', branch: 'all', type: 'hab', xStart: 0, zStart: 0, x: 0, y: 0 },
+        // ]
+        console.log(this.props.branchs)
 
         this.ctx = this.NeatherMap.current.getContext('2d');
         this.mouseDown = false;
@@ -121,7 +124,7 @@ class NeatherMap extends React.Component {
 
         this.points = [];
 
-        this.initialState.map(line => {
+        this.props.branchs.map(line => {
             this.ctx.beginPath();
     
             if (line.tunnel || line.type === 'mainTunnel') {
@@ -200,4 +203,14 @@ class NeatherMap extends React.Component {
     }
 }
 
-export default NeatherMap
+const mapStateToProps = state => {
+    return {
+        branchs: state.branchs
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NeatherMap)
