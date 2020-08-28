@@ -1,0 +1,36 @@
+.select__castom {
+    display: flex;
+    border: 1px solid #767676;
+    border-radius: 5px;
+    overflow: hidden;
+    & .select__item {
+        width: 50%;
+        text-align: center;
+        & span {
+            padding: 10px 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            font-family: 'Roboto-Bold';
+            transition: all .1s linear;
+            cursor: pointer;
+            &:hover {
+                background: #dadada;
+            }
+            &.blue {background: blue;}
+            &.yellow {background: yellow;}
+            &.red {background: red;}
+            &.green {background: green;}
+        }
+    }
+    &.select__castom--disabled {
+        & span {
+            cursor: default;
+            background: #dadada;
+            color: #adadad;
+            &:hover {
+                background: #dadada;
+            }
+        }
+    }
+}

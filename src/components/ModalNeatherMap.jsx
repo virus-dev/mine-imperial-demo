@@ -6,8 +6,8 @@ const ModalNeatherMap = (props) => {
     return (
         <div className="modalNeatherMap" style={{left: markerHitbox.xFinish + 5, top: markerHitbox.yStart}}>
             <div className="modalNeatherMap__title">{markerInfo.name}</div>
-            <div className="modalNeatherMap__description">Город Райск</div>
-            <div className="modalNeatherMap__cords">200 200</div>
+            <div className="modalNeatherMap__description">{markerInfo.description}</div>
+            <div className="modalNeatherMap__cords">x:{markerInfo.x} y:{markerInfo.y}</div>
         </div>
     )
 }

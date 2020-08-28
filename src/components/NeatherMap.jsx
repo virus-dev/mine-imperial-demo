@@ -1,7 +1,6 @@
 import React from 'react'
 import { ModalNeatherMap, NamesNeatherMap, AddBranch } from './index'
 import { connect } from 'react-redux'
-import store from '../redux/store';
 
 class NeatherMap extends React.Component {
     constructor(props) {
@@ -9,24 +8,11 @@ class NeatherMap extends React.Component {
         this.NeatherMap = React.createRef();
         this.state = {
             modalNeatherMapIsOpen: false,
-            isRender: false
+            isRender: false,
         }
      }
 
      componentDidMount() {
-        // this.initialState = [
-        //     { name: 'Синяя ветка', branch: 'blue', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: -1000 },
-        //     { name: 'Желтая ветка', branch: 'yellow', type: 'mainTunnel', xStart: 0, zStart: 0, x: 1000, y: 0 },
-        //     { name: 'Красная ветка', branch: 'red', type: 'mainTunnel', xStart: 0, zStart: 0, x: 0, y: 1000 },
-        //     { name: 'Зеленая ветка', branch: 'green', type: 'mainTunnel', xStart: 0, zStart: 0, x: -1000, y: 0 },
-        //     { name: 'Райск', branch: 'red', type: 'portal', tunnel: 'true', xStart: 0, zStart: 194, x: 21, y: 194 },
-        //     { name: 'Главный эндер портал', branch: 'yellow', type: 'onRed', tunnel: 'true', xStart: 121, zStart: 0, x: 121, y: 146 },
-        //     { name: 'Главный эндер портал', branch: 'red', type: 'end', tunnel: 'true', xStart: 0, zStart: 146, x: 121, y: 146 },
-        //     { name: 'Крепость', branch: 'false', type: 'portal', tunnel: 'false', xStart: -200, zStart: -200, x: -200, y: -200 },
-        //     { name: 'Хаб', branch: 'all', type: 'hab', xStart: 0, zStart: 0, x: 0, y: 0 },
-        // ]
-        console.log(this.props.branchs)
-
         this.ctx = this.NeatherMap.current.getContext('2d');
         this.mouseDown = false;
         this.startDragOffset = {};
@@ -116,20 +102,61 @@ class NeatherMap extends React.Component {
         }
      }
 
+     renderMainTunnels = () => {
+        this.maxCordMainTunnel = 1000;
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, 0);
+        this.ctx.lineTo(0, this.maxCordMainTunnel);
+        this.ctx.strokeStyle = 'red'
+        this.ctx.lineWidth = '10';
+        this.ctx.stroke();
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, 0);
+        this.ctx.lineTo(0, -this.maxCordMainTunnel);
+        this.ctx.strokeStyle = 'blue'
+        this.ctx.lineWidth = '10';
+        this.ctx.stroke();
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, 0);
+        this.ctx.lineTo(this.maxCordMainTunnel, 0);
+        this.ctx.strokeStyle = 'yellow'
+        this.ctx.lineWidth = '10';
+        this.ctx.stroke();
+
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, 0);
+        this.ctx.lineTo(-this.maxCordMainTunnel, 0);
+        this.ctx.strokeStyle = 'green'
+        this.ctx.lineWidth = '10';
+        this.ctx.stroke();
+     }
+
      draw = (scale, translatePos) => {
         this.ctx.clearRect(0, 0, this.NeatherMap.current.width, this.NeatherMap.current.height);
         this.ctx.save();
         this.ctx.translate(translatePos.x, translatePos.y);
         this.ctx.scale(scale, scale);
 
+        this.renderMainTunnels()
+
         this.points = [];
 
+        console.log(this.props.branchs)
         this.props.branchs.map(line => {
             this.ctx.beginPath();
-    
-            if (line.tunnel || line.type === 'mainTunnel') {
-                this.ctx.moveTo(line.xStart, line.zStart);
-                this.ctx.lineTo(line.x, line.y);
+
+            if (line.tunnel && line.branch !== 'two') {
+
+                if (line.branch === 'red' || line.branch === 'blue') {
+                    this.ctx.moveTo(0, line.y);
+                    this.ctx.lineTo(line.x, line.y);
+                } else if (line.branch === 'green' || line.branch === 'yellow') {
+                    this.ctx.moveTo(line.xStart, line.zStart);
+                    this.ctx.lineTo(line.x, line.y);
+                }
     
                 switch (line.branch) {
                     case 'blue':
@@ -147,9 +174,34 @@ class NeatherMap extends React.Component {
                     default:
                         break;
                 }
+
+                this.ctx.lineWidth = '10';
+                this.ctx.stroke();
             }
-            this.ctx.lineWidth = '10';
-            this.ctx.stroke();
+
+            if (line.branch === 'two') {
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, line.y);
+                this.ctx.lineTo(line.x, line.y);
+                if (line.y < 0) {
+                    this.ctx.strokeStyle = 'blue'
+                } else {
+                    this.ctx.strokeStyle = 'red'    
+                }
+                this.ctx.lineWidth = '10';
+                this.ctx.stroke();
+
+                this.ctx.beginPath();
+                this.ctx.moveTo(line.x, 0);
+                this.ctx.lineTo(line.x, line.y);
+                if (line.x < 0) {
+                    this.ctx.strokeStyle = 'green'
+                } else {
+                    this.ctx.strokeStyle = 'yellow'    
+                }
+                this.ctx.lineWidth = '10';
+                this.ctx.stroke();
+            }
     
             if (line.type === 'portal' || line.type === 'end') {
                 this.ctx.beginPath();
@@ -197,7 +249,7 @@ class NeatherMap extends React.Component {
                     this.markers.map((marker, index) => <NamesNeatherMap props={marker} scale={this.scale} key={index}/>)
                 }
                 {this.state.modalNeatherMapIsOpen && <ModalNeatherMap marker={this.markerForModal} />}
-                {/* <AddBranch /> */}
+                <AddBranch />
             </div>
         )
     }
