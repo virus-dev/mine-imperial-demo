@@ -5,9 +5,12 @@ const ModalNeatherMap = (props) => {
     const markerInfo = props.marker[1].point
     return (
         <div className="modalNeatherMap" style={{left: markerHitbox.xFinish + 5, top: markerHitbox.yStart}}>
-            <div className="modalNeatherMap__title">{markerInfo.name}</div>
+            <h2 className="modalNeatherMap__title">{markerInfo.name}</h2>
             <div className="modalNeatherMap__description">{markerInfo.description}</div>
-            <div className="modalNeatherMap__cords">x:{markerInfo.x} y:{markerInfo.y}</div>
+            <div className="modalNeatherMap__cords">
+                <div>X: <span>{markerInfo.x}</span></div>
+                <div>Z: <span>{markerInfo.y}</span></div>
+            </div>
         </div>
     )
 }

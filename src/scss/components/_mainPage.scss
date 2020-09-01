@@ -1,0 +1,32 @@
+.mainPage {
+    & .page {
+        padding: 0;
+        border-radius: 0 0 5px 5px;
+        & .mainPage__img {
+            position: relative;
+            & img {
+                opacity: .7;
+            }
+            & .mainPage__img__text {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                & > h2 {
+                    color: red;
+                    font-size: 50px;
+                    margin-bottom: 25px;
+                }
+                & > h3 {
+                    color: black;
+                    font-size: 25px;
+                }
+                z-index: 1;
+            }
+        }
+        & .page__content {
+            padding: 10px 15px;
+        }
+    }
+}

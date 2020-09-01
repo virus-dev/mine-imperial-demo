@@ -1,0 +1,20 @@
+.moderationBranch__box {
+    margin: 25px 0;
+    .moderationBranch__item {
+        border-bottom: 1px #c2c2c2 solid;
+        display: grid;
+        grid-template-columns: 200px 1fr 130px 70px 70px 160px;
+        grid-column-gap: 10px;
+        & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .moderationBranch__name {
+        word-break: break-all;
+    }
+    .moderationBranch__description {
+        word-break: break-all;
+    }
+}

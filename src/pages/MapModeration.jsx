@@ -1,8 +1,12 @@
 import React from 'react'
-import { ModalNeatherMap, NamesNeatherMap, AddBranch } from './index'
+import { ModalNeatherMap, NamesNeatherMap } from './../components/index'
 import { connect } from 'react-redux'
+import { branchsOnNeaterMapModeration } from './../redux/actions/branchsOnNeaterMapModeration'
+import { addBranch } from './../redux/actions/addBranch'
+import { deliteOneBranchOnModeration } from './../redux/actions/addBranchOnModeration'
+import { Link } from 'react-router-dom'
 
-class NeatherMap extends React.Component {
+class MapModeration extends React.Component {
     constructor(props) {
         super(props);
         this.NeatherMap = React.createRef();
@@ -14,9 +18,16 @@ class NeatherMap extends React.Component {
 
      componentDidMount() {
         this.ctx = this.NeatherMap.current.getContext('2d');
-        this.onMarkerView = {
-            x: 0,
-            z: 0
+        if (this.props.branchs.length !== 0) {
+            this.onMarkerView = {
+                x: this.props.branchs[0].x,
+                z: this.props.branchs[0].y
+            }
+        } else {
+            this.onMarkerView = {
+                x: 0,
+                z: 0
+            }
         }
         this.mouseDown = false;
         this.startDragOffset = {};
@@ -76,6 +87,17 @@ class NeatherMap extends React.Component {
 
      finishLooking = () => {
         this.mouseDown = false;
+     }
+
+     buttonFunction = (type) => {
+        this.newBranchsModeration = [...this.props.branchsModeration]
+        for (let i = 0; i < this.newBranchsModeration.length; i++) {
+            if (this.newBranchsModeration[i] === this.props.branchs[0]) {
+                this.newBranchsModeration.splice(i, 1)
+            }
+        }
+        this.props.dispatch(deliteOneBranchOnModeration(this.newBranchsModeration))
+        if (type === 'add') {this.props.dispatch(addBranch(this.props.branchs[0]))}
      }
 
      wheel = (evt) => {
@@ -256,7 +278,10 @@ class NeatherMap extends React.Component {
                     this.markers.map((marker, index) => <NamesNeatherMap props={marker} scale={this.scale} key={index}/>)
                 }
                 {this.state.modalNeatherMapIsOpen && <ModalNeatherMap marker={this.markerForModal} />}
-                <AddBranch />
+                <div className="mapModeration__buttons">
+                    <Link to='moderation' className="btn btn-confirm shadow" onClick={() => this.buttonFunction('add')}>Одобрить</Link>
+                    <Link to='moderation' className="btn btn-close shadow" onClick={() => this.buttonFunction('delite')}>Отклонить</Link>
+                </div>
             </div>
         )
     }
@@ -264,12 +289,17 @@ class NeatherMap extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        branchs: state.branchs
+        branchs: state.branchsOnNeaterMapModeration,
+        branchsModeration: state.branchsOnModeration,
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        addBranch: action => dispatch(addBranch(action)),
+        deliteOneBranchOnModeration: action => dispatch(deliteOneBranchOnModeration(action)),
+        dispatch
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NeatherMap)
+export default connect(mapStateToProps, mapDispatchToProps)(MapModeration)

@@ -87,12 +87,12 @@ function AddBranchForm() {
                 if (e.target.value >= 0) {
                     setBranchVisible([
                         branchVisible[0],
-                        {text: 'Синяя', type: 'blue'}
+                        {text: 'Красная', type: 'red'}
                     ])
                 } else {
                     setBranchVisible([
                         branchVisible[0],
-                        {text: 'Красная', type: 'red'}
+                        {text: 'Синяя', type: 'blue'}
                     ])
                 }
                 dispatch(addBranchY(e.target.value))
@@ -105,7 +105,6 @@ function AddBranchForm() {
     const checkboxCheck = (type) => {
         if (type === 'HAS_TUNNEL') {
             dispatch(addBranchHasTunnel(!state.hasTunnel))
-            console.log(!state.hasTunnel === false)
             if (!state.hasTunnel === false) {
                 dispatch(addBranchHasTwoTunnel(false))
                 dispatch(addBranchHasTwoTunnelDisabled(true))
@@ -123,52 +122,53 @@ function AddBranchForm() {
         }
     }
 
-    const selectCheck = (type) => {
-        console.log(type)
-    }
-
     let buttons;
     buttons = branchVisible.map((btn, index) => {
         return (
-        <div className="select__item">
+        <div className="select__item" key={`${btn.text}${index}`}>
             <span 
                 className={state.branchColor.includes(btn.type) ? btn.type : ''}
-                onClick={() => dispatch(addBranchColor([btn.type]))}
-                key={index}>
+                onClick={() => dispatch(addBranchColor([btn.type]))}>
                     {btn.text}
                 </span>
         </div> 
         )
     })
 
+    const AddBranchForm__ = 'AddBranchForm__'
+
     return (
-        <div>
-            <div className="formGroup">
-                <label htmlFor="">Название</label>
-                <input type="text" className="input" value={state.title} onChange={function(e){textCheck(e, 'TITLE')}}/>
+        <div className="AddBranchForm">
+            <div className="formGroup column">
+                <label htmlFor={`${AddBranchForm__}input`} className="label-text">Название</label>
+                <input id={`${AddBranchForm__}input`} type="text" maxlength='25' className="input-text" value={state.title} onChange={function(e){textCheck(e, 'TITLE')}}/>
             </div>
-            <div className="formGroup">
-                <label htmlFor="">Описание</label>
-                <textarea type="text" className="textarea" value={state.description} onChange={function(e){textCheck(e, 'DESCRIPTION')}}/>
+            <div className="formGroup column">
+                <label htmlFor={`${AddBranchForm__}description`} className="label-text">Описание</label>
+                <textarea id={`${AddBranchForm__}description`} maxlength='250' type="text" className="textarea" value={state.description} onChange={function(e){textCheck(e, 'DESCRIPTION')}}/>
             </div>
-            <div className="formGroup">
-                <label htmlFor="">X:</label>
-                <input type="text" className="input" value={state.x} onChange={function(e){textCheck(e, 'X_CORD')}}/>
+            <div className="flex">
+                <div className="formGroup line">
+                    <label htmlFor={`${AddBranchForm__}x`} className="label-text">X:</label>
+                    <input id={`${AddBranchForm__}x`} type="text" className="input-text" value={state.x} onChange={function(e){textCheck(e, 'X_CORD')}}/>
+                </div>
+                <div className="formGroup line">
+                    <label htmlFor={`${AddBranchForm__}z`} className="label-text">Z:</label>
+                    <input id={`${AddBranchForm__}z`} type="text" className="input-text" value={state.y} onChange={function(e){textCheck(e, 'Y_CORD')}}/>
+                </div>
             </div>
-            <div className="formGroup">
-                <label htmlFor="">Z:</label>
-                <input type="text" className="input" value={state.y} onChange={function(e){textCheck(e, 'Y_CORD')}}/>
+            <div className="flex">
+                <div className="formGroup line">
+                    <label htmlFor={`${AddBranchForm__}hasTunnel`} className="label-checkbox">Есть туннель?</label>
+                    <input id={`${AddBranchForm__}hasTunnel`} type="checkbox" className="input-checkbox" checked={state.hasTunnel} onChange={function(){checkboxCheck('HAS_TUNNEL')}}/>
+                </div>
+                <div className="formGroup line">
+                    <label htmlFor={`${AddBranchForm__}hasTwoTunnel`} className="label-checkbox">Построено 2 Ветки</label>
+                    <input id={`${AddBranchForm__}hasTwoTunnel`} type="checkbox" className="input-checkbox" disabled={state.hasTwoTunnelDisabled} checked={state.hasTwoTunnel} onChange={function(){checkboxCheck('HAS_TWO_TUNNEL')}}/>
+                </div>
             </div>
-            <div className="formGroup">
-                <label htmlFor="">Есть туннель?</label>
-                <input type="checkbox" className="checkbox" checked={state.hasTunnel} onChange={function(){checkboxCheck('HAS_TUNNEL')}}/>
-            </div>
-            <div className="formGroup">
-                <label htmlFor="">Построено 2 Ветки</label>
-                <input type="checkbox" className="checkbox" disabled={state.hasTwoTunnelDisabled} checked={state.hasTwoTunnel} onChange={function(){checkboxCheck('HAS_TWO_TUNNEL')}}/>
-            </div>
-            <div className="formGroup">
-                <label htmlFor="">Ветка</label>
+            <div className="formGroup column">
+                <label className="label-checkbox">Ветка</label>
                 <div className={state.hasTunnel === true ? 'select__castom' : 'select__castom select__castom--disabled'}>
                     {buttons}
                 </div>

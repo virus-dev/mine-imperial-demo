@@ -2,7 +2,7 @@ import React from 'react'
 import { ModalWindow } from './index'
 import { AddBranchForm } from './index'
 import { useDispatch, useSelector } from 'react-redux'
-import { addBranch } from './../redux/actions/addBranch'
+import { addBranchOnModeration } from './../redux/actions/addBranchOnModeration'
 import { addBranchEmpty } from './../redux/actions/addBranchForm'
 
 function AddBranch() {
@@ -17,11 +17,14 @@ function AddBranch() {
             && state.description !== ''
             && state.x !== '0'
             && state.y !== '0'
-            && state.y !== '0'
-            && state.branchColor.length !== 0
+            && (
+                state.hasTunnel === true && state.branchColor.length !== 0
+                ||
+                state.hasTunnel === false && state.branchColor.length === 0
+            )
         ) {
             let color = state.branchColor.length > 1 ? 'two' : state.branchColor[0] ;
-            dispatch(addBranch({
+            dispatch(addBranchOnModeration({
                 name: state.title,
                 description: state.description,
                 branch: color, 

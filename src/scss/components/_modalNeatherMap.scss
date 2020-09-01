@@ -11,4 +11,18 @@
     width: 200px;
     padding: 10px 15px;
     z-index: 10;
+    .modalNeatherMap__title {
+        margin-bottom: 10px;
+    }
+    .modalNeatherMap__description {
+        margin-bottom: 10px;
+    }
+    .modalNeatherMap__cords {
+        display: flex;
+        justify-content: space-around;
+        & span {
+            font-size: 18px;
+            font-family: 'Roboto-Bold';
+        }
+    }
 }

@@ -2,6 +2,7 @@ header {
     position: fixed;
     width: 100%;
     z-index: 100;
+    top: 0;
     .nothingLine {
         height: 25px;
         background: white;
@@ -18,7 +19,7 @@ header {
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 62px;
+        grid-template-columns: 152px 1fr 90px 62px;
         align-items: center;
         .header__item {
             padding: 10px 15px;
@@ -26,6 +27,9 @@ header {
         .img {display: block;}
         .header__user, .header__burger {
             text-align: right;
+        }
+        .header__infoPage {
+            text-align: center;
         }
         .header__user {
             cursor: pointer;
@@ -49,6 +53,7 @@ header {
                 transition: all .1s linear;
                 display: block;
                 color: #222;
+                text-align: left;
                 &:hover {
                     background: #dfdfdf;
                 }
