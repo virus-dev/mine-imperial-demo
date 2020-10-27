@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css",
+    "main.js": "/mine-imperial-demo/static/js/main.2231edb1.chunk.js",
+    "main.js.map": "/mine-imperial-demo/static/js/main.2231edb1.chunk.js.map",
+    "runtime-main.js": "/mine-imperial-demo/static/js/runtime-main.32c12801.js",
+    "runtime-main.js.map": "/mine-imperial-demo/static/js/runtime-main.32c12801.js.map",
+    "static/js/2.5d3886f9.chunk.js": "/mine-imperial-demo/static/js/2.5d3886f9.chunk.js",
+    "static/js/2.5d3886f9.chunk.js.map": "/mine-imperial-demo/static/js/2.5d3886f9.chunk.js.map",
+    "index.html": "/mine-imperial-demo/index.html",
+    "precache-manifest.a60788203a63e7f425aabf0cd1a2c1bc.js": "/mine-imperial-demo/precache-manifest.a60788203a63e7f425aabf0cd1a2c1bc.js",
+    "service-worker.js": "/mine-imperial-demo/service-worker.js",
+    "static/css/main.a5367f2d.chunk.css.map": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css.map",
+    "static/js/2.5d3886f9.chunk.js.LICENSE.txt": "/mine-imperial-demo/static/js/2.5d3886f9.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/mine-imperial-demo/static/media/Roboto-Regular.11eabca2.ttf",
+    "static/media/burgerMenu.svg": "/mine-imperial-demo/static/media/burgerMenu.86595150.svg",
+    "static/media/mainPage.jpg": "/mine-imperial-demo/static/media/mainPage.ce792445.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32c12801.js",
+    "static/js/2.5d3886f9.chunk.js",
+    "static/css/main.a5367f2d.chunk.css",
+    "static/js/main.2231edb1.chunk.js"
+  ]
+}
