@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a53295891d424db88455f6fee00a5a5",
+    "revision": "858c07b3969cf119adca602b3600bff7",
     "url": "/mine-imperial-demo/index.html"
   },
   {
-    "revision": "11fd2775799376a6b5b0",
+    "revision": "cdf25b68d53d20ff2eea",
     "url": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "11fd2775799376a6b5b0",
-    "url": "/mine-imperial-demo/static/js/main.732144b2.chunk.js"
+    "revision": "cdf25b68d53d20ff2eea",
+    "url": "/mine-imperial-demo/static/js/main.20c3fc56.chunk.js"
   },
   {
     "revision": "64196ba54fc0040c329e",
