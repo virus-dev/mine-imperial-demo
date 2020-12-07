@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalNeatherMap, NamesNeatherMap, AddBranch } from './index'
+import { ModalNeatherMap, NamesNeatherMap } from './index'
 import { connect } from 'react-redux'
 
 class NeatherMap extends React.Component {
@@ -10,9 +10,9 @@ class NeatherMap extends React.Component {
             modalNeatherMapIsOpen: false,
             isRender: false,
         }
-     }
+    }
 
-     componentDidMount() {
+    componentDidMount() {
         this.ctx = this.NeatherMap.current.getContext('2d');
         this.onMarkerView = {
             x: 0,
@@ -256,7 +256,6 @@ class NeatherMap extends React.Component {
                     this.markers.map((marker, index) => <NamesNeatherMap props={marker} scale={this.scale} key={index}/>)
                 }
                 {this.state.modalNeatherMapIsOpen && <ModalNeatherMap marker={this.markerForModal} />}
-                <AddBranch />
             </div>
         )
     }
@@ -268,8 +267,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NeatherMap)
+export default connect(mapStateToProps)(NeatherMap)
