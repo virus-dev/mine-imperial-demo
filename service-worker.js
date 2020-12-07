@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mine-imperial-demo/precache-manifest.2bd69a2ea6335d7a647461d8fd417fd8.js"
+  "/mine-imperial-demo/precache-manifest.4848483acfac469ba8e403abf5fc44c7.js"
 );
 
 self.addEventListener('message', (event) => {
