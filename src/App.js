@@ -5,6 +5,7 @@ import { NeatherMap } from './components'
 
 function App() {
   return (
+    
     <div>
       <Route path='/' exact>
         <Link to="neather" style={{display: "block", margin: "20px"}}>Карта хайперлупов (Работает только на компьютере)</Link>
