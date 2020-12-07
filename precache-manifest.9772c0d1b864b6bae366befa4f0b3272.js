@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "33652078fb1c7f5f0e810bb78c261ba7",
+    "revision": "3c48721e52ac9d1b9171c01b31d83cf5",
     "url": "/mine-imperial-demo/index.html"
   },
   {
-    "revision": "d198e878f273794706c2",
+    "revision": "b933f685d51498dfb5c1",
     "url": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css"
   },
   {
-    "revision": "d91f9fa49424ef95c1c9",
-    "url": "/mine-imperial-demo/static/js/2.5d3886f9.chunk.js"
+    "revision": "15436e3f8a662286ac09",
+    "url": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/mine-imperial-demo/static/js/2.5d3886f9.chunk.js.LICENSE.txt"
+    "url": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d198e878f273794706c2",
-    "url": "/mine-imperial-demo/static/js/main.2231edb1.chunk.js"
+    "revision": "b933f685d51498dfb5c1",
+    "url": "/mine-imperial-demo/static/js/main.2d077fa1.chunk.js"
   },
   {
     "revision": "64196ba54fc0040c329e",
@@ -46,13 +46,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "11eabca2251325cfc5589c9c6fb57b46",
     "url": "/mine-imperial-demo/static/media/Roboto-Regular.11eabca2.ttf"
-  },
-  {
-    "revision": "8659515094d85059439811bbedcbbc39",
-    "url": "/mine-imperial-demo/static/media/burgerMenu.86595150.svg"
-  },
-  {
-    "revision": "ce792445a7c98ff7f2d57e8aec0ff3ab",
-    "url": "/mine-imperial-demo/static/media/mainPage.ce792445.jpg"
   }
 ]);
