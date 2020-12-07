@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css",
-    "main.js": "/mine-imperial-demo/static/js/main.d096cd45.chunk.js",
-    "main.js.map": "/mine-imperial-demo/static/js/main.d096cd45.chunk.js.map",
+    "main.js": "/mine-imperial-demo/static/js/main.4691c94d.chunk.js",
+    "main.js.map": "/mine-imperial-demo/static/js/main.4691c94d.chunk.js.map",
     "runtime-main.js": "/mine-imperial-demo/static/js/runtime-main.32c12801.js",
     "runtime-main.js.map": "/mine-imperial-demo/static/js/runtime-main.32c12801.js.map",
     "static/js/2.23eb2632.chunk.js": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js",
     "static/js/2.23eb2632.chunk.js.map": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js.map",
     "index.html": "/mine-imperial-demo/index.html",
-    "precache-manifest.5034e8527c4b6bc5efbf3a0cbcc38554.js": "/mine-imperial-demo/precache-manifest.5034e8527c4b6bc5efbf3a0cbcc38554.js",
+    "precache-manifest.2bd69a2ea6335d7a647461d8fd417fd8.js": "/mine-imperial-demo/precache-manifest.2bd69a2ea6335d7a647461d8fd417fd8.js",
     "service-worker.js": "/mine-imperial-demo/service-worker.js",
     "static/css/main.a5367f2d.chunk.css.map": "/mine-imperial-demo/static/css/main.a5367f2d.chunk.css.map",
     "static/js/2.23eb2632.chunk.js.LICENSE.txt": "/mine-imperial-demo/static/js/2.23eb2632.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.32c12801.js",
     "static/js/2.23eb2632.chunk.js",
     "static/css/main.a5367f2d.chunk.css",
-    "static/js/main.d096cd45.chunk.js"
+    "static/js/main.4691c94d.chunk.js"
   ]
 }
